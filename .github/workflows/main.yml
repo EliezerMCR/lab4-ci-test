@@ -26,4 +26,9 @@ jobs:
         uses: rickstaa/action-black@v1.3.3
       - name: Run test suite
         run: |
-          pipenv run pytest --cov
+          pipenv run pytest
+      - name: Build coverage file
+        run: |
+          pytest --cache-clear --cov=app test/ > pytest-coverage.txt
+      - name: Comment coverage
+        uses: coroo/pytest-coverage-commentator@v1.0.2
