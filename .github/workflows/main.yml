@@ -18,7 +18,7 @@ jobs:
           python -m pip install --upgrade pipenv wheel
       - name: Sync dependencies
         run: |
-          pipenv sync
+          pipenv lock
       - name: Install dependencies
         run: |
           pipenv install --deploy --dev
